@@ -21,6 +21,7 @@ class BlogEditor {
             publishBtn: document.getElementById('publish-btn'),
             deleteBtn: document.getElementById('delete-btn'),
             previewBtn: document.getElementById('preview-btn'),
+            exportGithubBtn: document.getElementById('export-github-btn'),
             logoutBtn: document.getElementById('logout-btn'),
             pageTitle: document.getElementById('page-title')
         };
@@ -128,6 +129,7 @@ class BlogEditor {
         this.elements.publishBtn.addEventListener('click', () => this.publish());
         this.elements.deleteBtn.addEventListener('click', () => this.deletePost());
         this.elements.previewBtn.addEventListener('click', () => this.showPreview());
+        this.elements.exportGithubBtn.addEventListener('click', () => this.exportToGitHub());
         this.elements.logoutBtn.addEventListener('click', () => this.logout());
 
         // Keyboard shortcuts
@@ -450,6 +452,21 @@ class BlogEditor {
                 e.returnValue = '';
                 return '';
             }
+        });
+    }
+
+    exportToGitHub() {
+        // Get all posts as JSON
+        const json = window.BlogStorage.exportToJSON();
+
+        // Copy to clipboard
+        navigator.clipboard.writeText(json).then(() => {
+            alert('✅ Blog posts exported to clipboard!\n\nNext steps:\n1. Let your assistant know you\'ve clicked Export\n2. They will update the blog-posts.json file\n3. They will commit and push to GitHub\n4. Your posts will be live for everyone!');
+        }).catch(err => {
+            // Fallback: download as file
+            console.error('Could not copy to clipboard:', err);
+            window.BlogStorage.downloadBackup();
+            alert('Blog posts downloaded as JSON file. Send this file to your assistant to sync to GitHub.');
         });
     }
 
