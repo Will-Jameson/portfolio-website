@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog post" id="meta-description">
+    <meta name="author" content="Will Jameson">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Blog Post" id="og-title">
+    <meta property="og:description" content="Blog post" id="og-description">
+    <meta property="og:url" content="" id="og-url">
+    <meta property="og:image" content="" id="og-image">
+
+    <title>Blog Post - Will Jameson</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/blog.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+
+    <style>
+        /* Post-specific styles */
+        .post-hero {
+            padding: calc(var(--navbar-height) + var(--space-3xl)) var(--space-md) var(--space-2xl);
+            background: var(--color-bg-secondary);
+            text-align: center;
+        }
+
+        .post-category {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
+            background: rgba(96, 165, 250, 0.1);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-md);
+        }
+
+        .post-title {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-lg) 0;
+            line-height: var(--line-height-tight);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+        }
+
+        .post-meta span:not(:last-child)::after {
+            content: '·';
+            margin-left: var(--space-sm);
+        }
+
+        .post-content-section {
+            padding: var(--space-3xl) var(--space-md);
+            background: var(--color-bg-primary);
+        }
+
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .post-body {
+            font-size: var(--font-size-lg);
+            line-height: var(--line-height-relaxed);
+            color: var(--color-text-primary);
+        }
+
+        .post-body h1,
+        .post-body h2,
+        .post-body h3 {
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-lg);
+            line-height: var(--line-height-tight);
+        }
+
+        .post-body h1 {
+            font-size: var(--font-size-3xl);
+        }
+
+        .post-body h2 {
+            font-size: var(--font-size-2xl);
+        }
+
+        .post-body h3 {
+            font-size: var(--font-size-xl);
+        }
+
+        .post-body p {
+            margin-bottom: var(--space-lg);
+        }
+
+        .post-body ul,
+        .post-body ol {
+            margin-left: var(--space-xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .post-body li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .post-body a {
+            color: var(--color-primary);
+            text-decoration: underline;
+            transition: var(--transition-base);
+        }
+
+        .post-body a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .post-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .post-body strong {
+            font-weight: var(--font-weight-bold);
+        }
+
+        .post-body em {
+            font-style: italic;
+        }
+
+        .post-navigation {
+            margin-top: var(--space-3xl);
+            padding-top: var(--space-2xl);
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .post-not-found {
+            text-align: center;
+            padding: var(--space-3xl) var(--space-md);
+        }
+
+        .post-not-found h1 {
+            font-size: var(--font-size-3xl);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-md);
+        }
+
+        .post-not-found p {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        @media (max-width: 768px) {
+            .post-hero {
+                padding: calc(var(--navbar-height) + var(--space-2xl)) var(--space-md) var(--space-xl);
+            }
+
+            .post-title {
+                font-size: var(--font-size-2xl);
+            }
+
+            .post-meta {
+                font-size: var(--font-size-sm);
+            }
+
+            .post-content-section {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .post-body {
+                font-size: var(--font-size-base);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Will Jameson</a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cv.html" class="nav-link">CV</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Post Content (populated by JavaScript) -->
+    <div id="post-container">
+        <div class="loading-state" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+            <p>Loading post...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    &copy; <span id="year"></span> Will Jameson. Built with passion and vanilla JavaScript.
+                </p>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/will-jameson/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="mailto:wbjame83@gmail.com" aria-label="Email">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/blog-storage.js"></script>
+    <script src="js/blog-post.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

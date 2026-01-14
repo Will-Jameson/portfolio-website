@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Post Editor">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Blog Editor</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/editor.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="editor-topbar">
+        <div class="editor-topbar-left">
+            <a href="posts.html" class="btn-icon" title="Back to posts">
+                <span>←</span>
+            </a>
+            <h1 class="editor-title" id="page-title">New Post</h1>
+        </div>
+        <div class="editor-topbar-right">
+            <span class="auto-save-status" id="save-status">Saved</span>
+            <button type="button" class="btn btn-secondary" id="save-draft-btn">
+                Save Draft
+            </button>
+            <button type="button" class="btn btn-primary" id="publish-btn">
+                Publish
+            </button>
+            <button type="button" class="btn-icon" id="logout-btn" title="Logout">
+                <span>⚙</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Editor -->
+    <div class="editor-container">
+        <!-- Metadata Section -->
+        <div class="editor-sidebar">
+            <div class="editor-section">
+                <h3 class="editor-section-title">Post Details</h3>
+
+                <div class="form-group">
+                    <label for="post-title" class="form-label">Title *</label>
+                    <input
+                        type="text"
+                        id="post-title"
+                        class="form-input"
+                        placeholder="Enter post title..."
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="post-slug" class="form-label">URL Slug</label>
+                    <input
+                        type="text"
+                        id="post-slug"
+                        class="form-input"
+                        placeholder="auto-generated-from-title"
+                        readonly
+                    >
+                    <p class="form-hint">Auto-generated from title</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="post-category" class="form-label">Category</label>
+                    <select id="post-category" class="form-input">
+                        <option value="Tutorial">Tutorial</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Technology">Technology</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="post-featured-image" class="form-label">Featured Image URL</label>
+                    <input
+                        type="url"
+                        id="post-featured-image"
+                        class="form-input"
+                        placeholder="https://example.com/image.jpg"
+                    >
+                    <p class="form-hint">External URL or path: assets/images/blog/image.jpg</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="post-excerpt" class="form-label">Custom Excerpt</label>
+                    <textarea
+                        id="post-excerpt"
+                        class="form-textarea"
+                        rows="3"
+                        placeholder="Leave blank to auto-generate..."
+                    ></textarea>
+                    <p class="form-hint">Optional. Auto-generated from content if empty.</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Read Time</label>
+                    <div class="read-time-display">
+                        <span id="read-time">0</span> min read
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-checkbox-group">
+                        <input type="checkbox" id="post-published" class="form-checkbox">
+                        <span>Publish immediately</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="editor-section">
+                <h3 class="editor-section-title">Actions</h3>
+                <button type="button" class="btn btn-secondary btn-block" id="preview-btn">
+                    Preview
+                </button>
+                <button type="button" class="btn btn-secondary btn-block" id="delete-btn" style="display: none;">
+                    Delete Post
+                </button>
+            </div>
+        </div>
+
+        <!-- Content Editor -->
+        <div class="editor-main">
+            <div class="editor-toolbar">
+                <button type="button" class="toolbar-btn" data-command="bold" title="Bold (Ctrl+B)">
+                    <strong>B</strong>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="italic" title="Italic (Ctrl+I)">
+                    <em>I</em>
+                </button>
+                <button type="button" class="toolbar-btn" data-command="underline" title="Underline (Ctrl+U)">
+                    <u>U</u>
+                </button>
+
+                <div class="toolbar-separator"></div>
+
+                <button type="button" class="toolbar-btn" data-command="heading" data-value="h1" title="Heading 1">
+                    H1
+                </button>
+                <button type="button" class="toolbar-btn" data-command="heading" data-value="h2" title="Heading 2">
+                    H2
+                </button>
+                <button type="button" class="toolbar-btn" data-command="heading" data-value="h3" title="Heading 3">
+                    H3
+                </button>
+                <button type="button" class="toolbar-btn" data-command="paragraph" title="Paragraph">
+                    P
+                </button>
+
+                <div class="toolbar-separator"></div>
+
+                <button type="button" class="toolbar-btn" data-command="insertUnorderedList" title="Bullet List">
+                    • List
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertOrderedList" title="Numbered List">
+                    1. List
+                </button>
+
+                <div class="toolbar-separator"></div>
+
+                <button type="button" class="toolbar-btn" data-command="createLink" title="Insert Link">
+                    🔗 Link
+                </button>
+                <button type="button" class="toolbar-btn" data-command="insertImage" title="Insert Image">
+                    🖼 Image
+                </button>
+
+                <div class="toolbar-separator"></div>
+
+                <button type="button" class="toolbar-btn" data-command="removeFormat" title="Clear Formatting">
+                    Clear
+                </button>
+            </div>
+
+            <div
+                id="editor-content"
+                class="editor-content"
+                contenteditable="true"
+                spellcheck="true"
+                data-placeholder="Start writing your post..."
+            ></div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal" id="preview-modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Preview</h2>
+                <button type="button" class="modal-close" id="close-preview">&times;</button>
+            </div>
+            <div class="modal-body" id="preview-content"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/blog-storage.js"></script>
+    <script src="../js/blog-auth.js"></script>
+    <script src="../js/blog-editor.js"></script>
+</body>
+</html>

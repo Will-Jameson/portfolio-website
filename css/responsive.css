@@ -1,0 +1,456 @@
+/* Responsive Design - Mobile First Approach */
+
+/* ====================================
+   Mobile (Base Styles)
+   320px - 767px
+   ==================================== */
+
+/* Base styles are already mobile-first in main.css */
+
+/* ====================================
+   Tablet
+   768px and up
+   ==================================== */
+
+@media (min-width: 768px) {
+    /* Typography */
+    :root {
+        --container-padding: var(--space-lg);
+    }
+
+    /* Navigation */
+    .nav-menu {
+        flex-direction: row;
+    }
+
+    /* Hero Section */
+    .hero-container {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+    }
+
+    .hero-content {
+        text-align: left;
+    }
+
+    .hero-cta {
+        justify-content: flex-start;
+    }
+
+    .hero-visual {
+        display: block;
+    }
+
+    .hero-shape {
+        width: 100%;
+        height: 400px;
+        background: transparent;
+        border-radius: var(--radius-2xl);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: var(--radius-xl);
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3xl);
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Contact Section */
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3xl);
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+/* ====================================
+   Desktop
+   1024px and up
+   ==================================== */
+
+@media (min-width: 1024px) {
+    /* Sections */
+    section {
+        padding: var(--space-4xl) 0;
+    }
+
+    /* Navigation - Hide mobile toggle, show full menu */
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-menu {
+        position: static;
+        flex-direction: row;
+        width: auto;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Blog Grid */
+    .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Hero Section */
+    .hero-container {
+        gap: var(--space-4xl);
+    }
+
+    .hero-shape {
+        height: 500px;
+    }
+
+    /* About Section */
+    .about-content {
+        gap: var(--space-4xl);
+    }
+
+    /* Contact Section */
+    .contact-content {
+        gap: var(--space-4xl);
+    }
+}
+
+/* ====================================
+   Large Desktop
+   1440px and up
+   ==================================== */
+
+@media (min-width: 1440px) {
+    /* Container */
+    .container {
+        max-width: 1400px;
+    }
+
+    /* Hero */
+    .hero-description {
+        max-width: 700px;
+    }
+
+    /* Sections */
+    .section-subtitle {
+        max-width: 700px;
+    }
+}
+
+/* ====================================
+   Mobile Navigation (Below 768px)
+   ==================================== */
+
+@media (max-width: 767px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: var(--navbar-height);
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - var(--navbar-height));
+        background-color: var(--color-bg-primary);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-2xl);
+        transition: right var(--transition-base);
+        overflow-y: auto;
+        z-index: var(--z-fixed);
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-item {
+        width: 100%;
+        padding: var(--space-sm) 0;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        display: block;
+        width: 100%;
+        padding: var(--space-sm) 0;
+    }
+
+    .theme-toggle {
+        width: 100%;
+        margin-top: var(--space-md);
+    }
+
+    /* Overlay when menu is open */
+    body.menu-open::before {
+        content: '';
+        position: fixed;
+        top: var(--navbar-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: calc(var(--z-fixed) - 1);
+    }
+}
+
+/* ====================================
+   Print Styles
+   ==================================== */
+
+@media print {
+    /* Hide non-essential elements */
+    .navbar,
+    .scroll-top,
+    .scroll-indicator,
+    .hero-cta,
+    .project-filters,
+    .contact-form,
+    .footer-links {
+        display: none !important;
+    }
+
+    /* Optimize for print */
+    body {
+        color: #000;
+        background: #fff;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+    }
+
+    /* Show link URLs */
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+
+    /* Remove shadows and transitions */
+    * {
+        box-shadow: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* ====================================
+   High Resolution Displays
+   ==================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    /* Optimize images and borders for retina displays */
+    img {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* ====================================
+   Landscape Orientation (Mobile)
+   ==================================== */
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: var(--space-3xl) 0;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    section {
+        padding: var(--space-2xl) 0;
+    }
+}
+
+/* ====================================
+   Touch Device Optimizations
+   ==================================== */
+
+@media (hover: none) and (pointer: coarse) {
+    /* Increase touch targets */
+    .btn,
+    .nav-link,
+    .filter-btn,
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .hover-lift:hover,
+    .hover-grow:hover,
+    .project-card:hover,
+    .blog-card:hover {
+        transform: none;
+    }
+
+    /* Keep basic interactivity */
+    .btn:active {
+        transform: scale(0.98);
+    }
+
+    .project-card:active,
+    .blog-card:active {
+        transform: scale(0.99);
+    }
+}
+
+/* ====================================
+   Dark Mode Specific Responsive Adjustments
+   ==================================== */
+
+@media (min-width: 768px) {
+    [data-theme="dark"] .navbar {
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* ====================================
+   Utility Classes for Responsive Display
+   ==================================== */
+
+/* Hide on mobile */
+@media (max-width: 767px) {
+    .hide-mobile {
+        display: none !important;
+    }
+}
+
+/* Hide on tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .hide-tablet {
+        display: none !important;
+    }
+}
+
+/* Hide on desktop */
+@media (min-width: 1024px) {
+    .hide-desktop {
+        display: none !important;
+    }
+}
+
+/* Show only on mobile */
+.show-mobile {
+    display: block !important;
+}
+
+@media (min-width: 768px) {
+    .show-mobile {
+        display: none !important;
+    }
+}
+
+/* Show only on tablet */
+.show-tablet {
+    display: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .show-tablet {
+        display: block !important;
+    }
+}
+
+/* Show only on desktop */
+.show-desktop {
+    display: none !important;
+}
+
+@media (min-width: 1024px) {
+    .show-desktop {
+        display: block !important;
+    }
+}
+
+/* ====================================
+   Container Width Adjustments
+   ==================================== */
+
+@media (max-width: 480px) {
+    :root {
+        --container-padding: var(--space-sm);
+    }
+}
+
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+}
+
+/* ====================================
+   Accessibility - Respect User Preferences
+   ==================================== */
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    :root {
+        --color-border: #000;
+        --color-text-secondary: var(--color-text-primary);
+    }
+
+    [data-theme="dark"] {
+        --color-border: #fff;
+    }
+}
+
+/* Reduced transparency for better readability */
+@media (prefers-reduced-transparency) {
+    .navbar,
+    .card,
+    .project-card,
+    .blog-card {
+        backdrop-filter: none;
+    }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Will Jameson - Blog posts about engineering, technology, and project learnings">
+    <meta name="author" content="Will Jameson">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog - Will Jameson">
+    <meta property="og:description" content="Thoughts on engineering, technology, and project learnings">
+    <meta property="og:url" content="https://yourwebsite.com/blog.html">
+
+    <title>Blog - Will Jameson</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/blog.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Will Jameson</a>
+
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cv.html" class="nav-link">CV</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link active">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="container">
+            <div class="blog-header-content animate-on-scroll">
+                <h1 class="blog-header-title">Blog</h1>
+                <p class="blog-header-subtitle">
+                    Thoughts on engineering, technology, and project learnings
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <!-- Category Filters -->
+            <div class="blog-filters animate-on-scroll">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="Tutorial">Tutorial</button>
+                <button class="filter-btn" data-category="Engineering">Engineering</button>
+                <button class="filter-btn" data-category="Technology">Technology</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid" id="blog-grid">
+                <!-- Blog posts will be dynamically loaded here -->
+                <div class="loading-state">
+                    <p>Loading posts...</p>
+                </div>
+            </div>
+
+            <!-- Empty State (hidden by default) -->
+            <div class="blog-empty" id="blog-empty" style="display: none;">
+                <div class="empty-state-content">
+                    <h3>No posts yet</h3>
+                    <p>Check back soon for new content!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    &copy; <span id="year"></span> Will Jameson. Built with passion and vanilla JavaScript.
+                </p>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/will-jameson/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="mailto:wbjame83@gmail.com" aria-label="Email">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        ↑
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/blog-storage.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/navigation.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

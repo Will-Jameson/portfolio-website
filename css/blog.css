@@ -1,0 +1,182 @@
+/* Blog Page Styles */
+
+/* ====================================
+   Blog Header
+   ==================================== */
+
+.blog-header {
+    padding: calc(var(--navbar-height) + var(--space-3xl)) var(--space-md) var(--space-3xl);
+    background: var(--color-bg-secondary);
+    text-align: center;
+}
+
+.blog-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-header-title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-md) 0;
+    line-height: var(--line-height-tight);
+}
+
+.blog-header-subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-normal);
+    margin: 0;
+}
+
+/* ====================================
+   Blog Content Section
+   ==================================== */
+
+.blog-content {
+    padding: var(--space-3xl) var(--space-md);
+    background: var(--color-bg-primary);
+}
+
+/* ====================================
+   Blog Filters
+   ==================================== */
+
+.blog-filters {
+    display: flex;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-2xl);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    font-family: var(--font-family-primary);
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.filter-btn:hover {
+    color: var(--color-text-primary);
+    background: var(--color-bg-tertiary);
+    border-color: var(--color-primary);
+}
+
+.filter-btn.active {
+    color: white;
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* ====================================
+   Empty State
+   ==================================== */
+
+.blog-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    text-align: center;
+}
+
+.empty-state-content h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-md) 0;
+}
+
+.empty-state-content p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* ====================================
+   Loading State
+   ==================================== */
+
+.loading-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    text-align: center;
+}
+
+.loading-state p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+}
+
+/* ====================================
+   Blog Card Meta (extends components.css)
+   ==================================== */
+
+.blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+    padding-top: var(--space-sm);
+    border-top: 1px solid var(--color-border);
+}
+
+.blog-read-time {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+}
+
+/* ====================================
+   Responsive Design
+   ==================================== */
+
+@media (max-width: 768px) {
+    .blog-header {
+        padding: calc(var(--navbar-height) + var(--space-2xl)) var(--space-md) var(--space-2xl);
+    }
+
+    .blog-header-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .blog-header-subtitle {
+        font-size: var(--font-size-lg);
+    }
+
+    .blog-content {
+        padding: var(--space-2xl) var(--space-md);
+    }
+
+    .blog-filters {
+        margin-bottom: var(--space-xl);
+    }
+
+    .filter-btn {
+        padding: var(--space-xs) var(--space-md);
+        font-size: var(--font-size-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-header-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .blog-header-subtitle {
+        font-size: var(--font-size-base);
+    }
+
+    .blog-filters {
+        gap: var(--space-xs);
+    }
+}

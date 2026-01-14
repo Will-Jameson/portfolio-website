@@ -1,0 +1,35 @@
+{
+  "projects": [
+    {
+      "id": "engr-696-final-project",
+      "title": "Automated Louvers for Passive Climate Control",
+      "description": "Programmable automated cooling system for sustainable home and commercial development using STM32 microcontroller.",
+      "longDescription": "Comprehensive graduate research project completed as part of the ENGR 696 coursework. This project demonstrates advanced electrical engineering principles, analysis, and practical implementation. Features automated louver control for passive climate regulation and energy efficiency in residential and commercial buildings. Full technical write-up and documentation available.",
+      "technologies": ["STM32", "Embedded Systems", "C", "Electrical Engineering"],
+      "image": "assets/images/projects/louverpic.png",
+      "links": {
+        "github": "",
+        "demo": "",
+        "document": "docs/ENGR 696 Final Write-Up.docx"
+      },
+      "category": "hardware",
+      "featured": true,
+      "date": "2025-12"
+    },
+    {
+      "id": "fpga-led-dimmer",
+      "title": "FPGA Based LED Dimmer System",
+      "description": "Automated LED dimmer system using FPGA with pulse width and pulse frequency modulation.",
+      "longDescription": "Developed as part of the Open Avenues Build Foundation program. Programmed an FPGA in Verilog to control LED dimmers using pulse width modulation (PWM) and pulse frequency modulation techniques. Utilized Icarus and GTKWave simulation software for testing and verification. Implemented the system on an Efinix Xyloni development board. Produced a comprehensive presentation on the process, results, and projected applications of FPGA-based PWM signal control.",
+      "technologies": ["FPGA", "Verilog", "PWM", "GTKWave", "Efinix Xyloni"],
+      "image": "assets/images/projects/xyloni-board-top.jpg",
+      "links": {
+        "github": "",
+        "demo": ""
+      },
+      "category": "hardware",
+      "featured": true,
+      "date": "2024-08"
+    }
+  ]
+}
