@@ -1,3 +1,18 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "id": "welcome-to-my-lair-2026-01-14",
+      "title": "Welcome to My Lair",
+      "slug": "welcome-to-my-lair",
+      "content": "I am very excited to present my new website and blog to you all. &nbsp;It will be here that I share my thoughts, interests, travails, and project ideas. &nbsp;Looking forward to seeing you all here!",
+      "category": "Engineering",
+      "featuredImage": "",
+      "excerpt": "I am very excited to present my new website and blog to you all. &nbsp;It will be here that I share my thoughts, interests, travails, and project idea...",
+      "author": "Will Jameson",
+      "published": true,
+      "readTime": 1,
+      "createdAt": 1768426222672,
+      "updatedAt": 1768426282672
+    }
+  ]
 }
