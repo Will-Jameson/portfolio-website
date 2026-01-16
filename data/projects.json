@@ -6,7 +6,7 @@
       "description": "Cross-platform mobile application for bartenders to calculate tips, balance cash drawers, and track shift notes.",
       "longDescription": "Professional React Native application built with TypeScript and Expo. Features a sophisticated tip calculator with hourly rate distribution based on staff hours worked, cash drawer balancing with over/short tracking, and shift notes for inventory and incident reporting. Designed for real-world bar operations with an intuitive mobile-first interface. Data is stored locally for financial privacy with plans to sync operational notes to backend management systems.",
       "technologies": ["React Native", "TypeScript", "Expo", "Mobile Development"],
-      "image": "assets/images/projects/placeholder.jpg",
+      "image": "assets/images/projects/bar-app-screenshot.png",
       "links": {
         "github": "https://github.com/Will-Jameson/BarApp",
         "demo": ""
