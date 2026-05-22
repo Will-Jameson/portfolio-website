@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reclaim Creative — Stabilize: an assistive drawing system that filters essential tremor in real time">
+    <meta name="author" content="Will Jameson">
+
+    <title>Reclaim Creative — Stabilize | Will Jameson</title>
+
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+
+    <style>
+        .project-hero {
+            padding: calc(var(--navbar-height) + var(--space-3xl)) var(--space-md) var(--space-2xl);
+            background: var(--color-bg-secondary);
+            text-align: center;
+        }
+
+        .project-hero-content {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .project-label {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
+            background: rgba(96, 165, 250, 0.1);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-md);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .project-hero-title {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-lg) 0;
+            line-height: var(--line-height-tight);
+        }
+
+        .project-hero-subtitle {
+            font-size: var(--font-size-xl);
+            color: var(--color-text-secondary);
+            max-width: 680px;
+            margin: 0 auto var(--space-xl);
+            line-height: var(--line-height-relaxed);
+        }
+
+        .project-cta {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .project-body {
+            background: var(--color-bg-primary);
+            padding: var(--space-3xl) var(--space-md);
+        }
+
+        .project-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .project-hero-image {
+            width: 100%;
+            max-height: 480px;
+            object-fit: cover;
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--space-3xl);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .project-section {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .project-section-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-lg) 0;
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .project-text {
+            font-size: var(--font-size-lg);
+            line-height: var(--line-height-relaxed);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+
+        .pipeline-step {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-top: 4px solid var(--color-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .pipeline-step-number {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--color-primary);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pipeline-step h4 {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-primary);
+            margin: 0 0 var(--space-sm) 0;
+        }
+
+        .pipeline-step p {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin: 0;
+            line-height: var(--line-height-relaxed);
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: var(--space-lg);
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        .stat-box .stat-val {
+            display: block;
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--color-primary);
+            line-height: 1.1;
+            margin-bottom: var(--space-xs);
+        }
+
+        .stat-box .stat-desc {
+            display: block;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .diagram-image {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            margin: var(--space-xl) 0;
+            border: 1px solid var(--color-border);
+            background: var(--color-bg-secondary);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+        }
+
+        .tech-category {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+        }
+
+        .tech-category h4 {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
+            margin: 0 0 var(--space-sm) 0;
+        }
+
+        .tech-category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tech-category li {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            padding: 0.2rem 0 0.2rem var(--space-md);
+            position: relative;
+        }
+
+        .tech-category li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+        }
+
+        .project-nav {
+            margin-top: var(--space-3xl);
+            padding-top: var(--space-2xl);
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        @media (max-width: 768px) {
+            .project-hero-title { font-size: var(--font-size-3xl); }
+            .project-hero-subtitle { font-size: var(--font-size-base); }
+            .project-nav { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Will Jameson</a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../index.html#projects" class="nav-link active">Projects</a></li>
+                <li class="nav-item"><a href="../index.html#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="../cv.html" class="nav-link">CV</a></li>
+                <li class="nav-item"><a href="../blog.html" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content animate-on-scroll">
+            <span class="project-label">Hardware · Signal Processing</span>
+            <h1 class="project-hero-title">Reclaim Creative — Stabilize</h1>
+            <p class="project-hero-subtitle">
+                An assistive drawing system that filters essential tremor in real time,
+                translating a shaking hand's intent into precise robotic brushstrokes.
+            </p>
+            <div class="project-cta">
+                <a href="https://reclaimcreative.github.io/stabilize"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn btn-primary">Visit Project Site →</a>
+                <a href="../index.html#projects" class="btn btn-secondary">← Back to Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Body -->
+    <div class="project-body">
+        <div class="project-container">
+
+            <!-- Hero image -->
+            <img src="https://reclaimcreative.github.io/stabilize/images/image9.png"
+                 alt="Stabilize robotic plotter CAD assembly"
+                 class="project-hero-image animate-on-scroll"
+                 loading="eager">
+
+            <!-- Problem -->
+            <section class="project-section animate-on-scroll">
+                <h2 class="project-section-title">The Problem</h2>
+                <p class="project-text">
+                    Essential tremor affects over <strong>10 million Americans</strong>, causing rhythmic,
+                    involuntary hand shaking that makes fine motor tasks — like drawing — nearly impossible.
+                    For artists, this means losing the primary means of self-expression.
+                </p>
+                <p class="project-text">
+                    Existing medical treatments are invasive or imprecise. Reclaim Creative takes a different
+                    approach: rather than suppressing the tremor in the body, filter it out in software and
+                    let a robot do the drawing.
+                </p>
+                <img src="https://reclaimcreative.github.io/stabilize/images/image17.png"
+                     alt="Tremor spiral comparison — raw vs filtered"
+                     class="diagram-image"
+                     loading="lazy">
+            </section>
+
+            <!-- How it works -->
+            <section class="project-section animate-on-scroll">
+                <h2 class="project-section-title">How It Works</h2>
+                <p class="project-text">
+                    The system has three stages: sense the hand's position, filter out the tremor,
+                    and reproduce the intended motion with a precision plotter.
+                </p>
+
+                <div class="pipeline-grid">
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-number">01</div>
+                        <h4>Sensing</h4>
+                        <p>Two VL53L7CX time-of-flight sensors with SPAD arrays triangulate hand position
+                           in 2D using the law of cosines at 60 Hz.</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-number">02</div>
+                        <h4>Filtering</h4>
+                        <p>A Nucleo-L476RG runs an IIR low-pass filter that removes tremor frequencies
+                           (5–12 Hz) while preserving intentional artistic motion.</p>
+                    </div>
+                    <div class="pipeline-step">
+                        <div class="pipeline-step-number">03</div>
+                        <h4>Plotting</h4>
+                        <p>Filtered (x, y) coordinates stream over UART at 115,200 baud to a Simulink
+                           motor controller driving a custom Cartesian plotter.</p>
+                    </div>
+                </div>
+
+                <img src="https://reclaimcreative.github.io/stabilize/images/signal_pipeline.svg"
+                     alt="Signal processing pipeline diagram"
+                     class="diagram-image"
+                     loading="lazy">
+            </section>
+
+            <!-- Key stats -->
+            <section class="project-section animate-on-scroll">
+                <h2 class="project-section-title">By the Numbers</h2>
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <span class="stat-val">60 Hz</span>
+                        <span class="stat-desc">Sensor sampling rate</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-val">5–12 Hz</span>
+                        <span class="stat-desc">Tremor band filtered</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-val">80 steps/mm</span>
+                        <span class="stat-desc">Plotter resolution</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-val">3</span>
+                        <span class="stat-desc">Isolated microcontrollers</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hardware -->
+            <section class="project-section animate-on-scroll">
+                <h2 class="project-section-title">Hardware Design</h2>
+                <p class="project-text">
+                    The plotter uses aluminum V-slot extrusion for the frame with NEMA 17 stepper motors
+                    driven by TMC2209 drivers (overcurrent protection included). A spring-loaded,
+                    servo-actuated pen lifter prevents surface damage when repositioning between strokes.
+                </p>
+
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap: var(--space-lg);">
+                    <img src="https://reclaimcreative.github.io/stabilize/images/image14.png"
+                         alt="Y-axis gantry plate CAD"
+                         class="diagram-image" style="margin:0;"
+                         loading="lazy">
+                    <img src="https://reclaimcreative.github.io/stabilize/images/image11.png"
+                         alt="Pen lifting mechanism CAD"
+                         class="diagram-image" style="margin:0;"
+                         loading="lazy">
+                </div>
+            </section>
+
+            <!-- Tech stack -->
+            <section class="project-section animate-on-scroll">
+                <h2 class="project-section-title">Technologies Used</h2>
+                <div class="tech-grid">
+                    <div class="tech-category">
+                        <h4>Sensing</h4>
+                        <ul>
+                            <li>VL53L7CX ToF sensors</li>
+                            <li>SPAD array triangulation</li>
+                            <li>Law of cosines geometry</li>
+                        </ul>
+                    </div>
+                    <div class="tech-category">
+                        <h4>Signal Processing</h4>
+                        <ul>
+                            <li>Nucleo-L476RG (STM32)</li>
+                            <li>IIR low-pass filter</li>
+                            <li>Embedded C firmware</li>
+                        </ul>
+                    </div>
+                    <div class="tech-category">
+                        <h4>Control & Motion</h4>
+                        <ul>
+                            <li>Simulink motor control</li>
+                            <li>NEMA 17 stepper motors</li>
+                            <li>TMC2209 stepper drivers</li>
+                            <li>UART (115,200 baud)</li>
+                        </ul>
+                    </div>
+                    <div class="tech-category">
+                        <h4>Mechanical</h4>
+                        <ul>
+                            <li>Aluminum V-slot extrusion</li>
+                            <li>Servo pen lifter</li>
+                            <li>CAD design</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bottom nav -->
+            <div class="project-nav animate-on-scroll">
+                <a href="../index.html#projects" class="btn btn-secondary">← All Projects</a>
+                <a href="https://reclaimcreative.github.io/stabilize"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn btn-primary">Visit Full Project Site →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    &copy; <span id="year"></span> Will Jameson. Built with passion and vanilla JavaScript.
+                </p>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/will-jameson/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:wbjame83@gmail.com">Email</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">↑</button>
+
+    <script src="../js/main.js" defer></script>
+    <script src="../js/navigation.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

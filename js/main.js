@@ -118,13 +118,27 @@ function createProjectCard(project) {
            </a>`
         : '';
 
+    const pageLink = project.links.page
+        ? `<a href="${project.links.page}" class="project-link primary">
+            View Overview
+           </a>`
+        : '';
+
+    const imageHtml = project.links.page
+        ? `<a href="${project.links.page}"><img src="${project.image}" alt="${project.title}" loading="lazy"></a>`
+        : `<img src="${project.image}" alt="${project.title}" loading="lazy">`;
+
+    const titleHtml = project.links.page
+        ? `<h3 class="project-card-title"><a href="${project.links.page}" style="color:inherit;text-decoration:none;">${project.title}</a></h3>`
+        : `<h3 class="project-card-title">${project.title}</h3>`;
+
     return `
         <div class="project-card animate-on-scroll" data-category="${project.category}">
             <div class="project-card-image">
-                <img src="${project.image}" alt="${project.title}" loading="lazy">
+                ${imageHtml}
             </div>
             <div class="project-card-content">
-                <h3 class="project-card-title">${project.title}</h3>
+                ${titleHtml}
                 <p class="project-card-description">${project.description}</p>
                 <div class="project-card-tech">
                     ${techTags}
@@ -133,6 +147,7 @@ function createProjectCard(project) {
                     ${githubLink}
                     ${demoLink}
                     ${documentLink}
+                    ${pageLink}
                 </div>
             </div>
         </div>

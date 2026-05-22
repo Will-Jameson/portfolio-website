@@ -1,6 +1,22 @@
 {
   "projects": [
     {
+      "id": "stabilize",
+      "title": "Reclaim Creative — Stabilize",
+      "description": "Assistive drawing system that filters essential tremor in real time, letting artists with hand tremors draw via a robotic plotter.",
+      "longDescription": "A team capstone project addressing essential tremor, a condition affecting over 10 million Americans. Two VL53L7CX time-of-flight sensors triangulate hand position; an IIR low-pass filter on a Nucleo-L476RG strips tremor frequencies (5–12 Hz) while preserving intentional motion. Filtered coordinates drive a custom Cartesian plotter with NEMA 17 stepper motors at 80 steps/mm accuracy, enabling fluid artistic expression regardless of tremor severity.",
+      "technologies": ["STM32", "Embedded C", "IIR Filter", "Simulink", "UART", "Stepper Motors", "CAD", "Signal Processing"],
+      "image": "https://reclaimcreative.github.io/stabilize/images/image9.png",
+      "links": {
+        "github": "",
+        "demo": "",
+        "page": "projects/stabilize.html"
+      },
+      "category": "hardware",
+      "featured": true,
+      "date": "2025-05"
+    },
+    {
       "id": "bar-shift-manager",
       "title": "Bar Shift Manager Mobile App",
       "description": "Cross-platform mobile application for bartenders to calculate tips, balance cash drawers, and track shift notes.",
