@@ -48,6 +48,21 @@
       "date": "2025-12"
     },
     {
+      "id": "lm21215-buck-converter",
+      "title": "TI LM-21215 Buck Converter Evaluation Board",
+      "description": "Custom evaluation board for the Texas Instruments LM21215 IC, designed as a 5V to 1.8V step-down DC-DC converter capable of supplying 5A with tight ripple and transient specifications.",
+      "longDescription": "Designed, built, and tested a buck converter evaluation board using the TI LM21215 synchronous buck controller for ENGR-455. The board steps down 5V to 1.8V at up to 5A, meeting strict design targets: <30% inductor current ripple, <1% voltage ripple at input and output, and >50° phase margin. All components were hand-soldered using 0805 or larger packages with test points at the input, output, switch node, P-good, and enable pins. Testing revealed inductor saturation at high loads attributed to thermal effects, and transient noise traced to input capacitor over-selection — resolved by reducing capacitance from 150µF to 100µF. Measured load-step voltage droop was 35mV vs. a 26.5mV theoretical target. Phase margin was verified via TI WEBench at 73°, exceeding the 50° requirement.",
+      "technologies": ["PCB Design", "Power Electronics", "Buck Converter", "TI WEBench", "Hand Soldering", "Oscilloscope Analysis", "Compensation Loop Design", "Bode Plot"],
+      "image": "assets/images/projects/lm21215-board.jpg",
+      "links": {
+        "github": "",
+        "demo": ""
+      },
+      "category": "hardware",
+      "featured": true,
+      "date": "2026-05"
+    },
+    {
       "id": "fpga-led-dimmer",
       "title": "FPGA Based LED Dimmer System",
       "description": "Automated LED dimmer system using FPGA with pulse width and pulse frequency modulation.",
