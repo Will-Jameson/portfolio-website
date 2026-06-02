@@ -56,7 +56,8 @@
       "image": "assets/images/projects/lm21215-board.jpg",
       "links": {
         "github": "",
-        "demo": ""
+        "demo": "",
+        "document": "docs/Evaluation Board for Texas Instruments LM-21215 Buck Converter.pdf"
       },
       "category": "hardware",
       "featured": true,
