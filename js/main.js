@@ -93,6 +93,10 @@ function renderProjects(projects) {
     }
 
     projectsGrid.innerHTML = projects.map(project => createProjectCard(project)).join('');
+
+    if (window.animationUtils) {
+        window.animationUtils.initScrollAnimations();
+    }
 }
 
 function createProjectCard(project) {

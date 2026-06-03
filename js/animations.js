@@ -428,7 +428,8 @@ window.animationUtils = {
     createRevealObserver,
     initTypingEffect,
     animateProgressBars,
-    animateColorChange
+    animateColorChange,
+    initScrollAnimations
 };
 
 // Optional: Enable performance monitoring in development
